@@ -1,14 +1,15 @@
-class TimerService {
-  TimerService._internal();
+class CounterService {
+  CounterService._internal();
 
-  static final TimerService _instance = TimerService._internal();
+  static final CounterService _instance = CounterService._internal();
 
-  factory TimerService() {
+  factory CounterService() {
     return _instance;
   }
 
-  Stream<int> timer(Duration duration) {
-    return Stream.periodic(duration, (t) => duration.inSeconds - t - 1)
-        .take(duration.inSeconds);
+  Stream<int> timer(int durationInSec) {
+    return Stream.periodic(
+            Duration(seconds: durationInSec), (t) => durationInSec - t - 1)
+        .take(durationInSec);
   }
 }

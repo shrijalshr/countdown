@@ -6,3 +6,21 @@ abstract class CountdownEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class StartCountdown extends CountdownEvent {
+  const StartCountdown({required this.duration});
+
+  final int duration;
+}
+
+class PauseCountdown extends CountdownEvent {
+  const PauseCountdown();
+}
+
+class ResumeCountdown extends CountdownEvent {
+  const ResumeCountdown();
+}
+
+class StopCountdown extends CountdownEvent {
+  const StopCountdown();
+}

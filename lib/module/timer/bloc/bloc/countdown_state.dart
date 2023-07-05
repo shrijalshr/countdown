@@ -10,21 +10,21 @@ abstract class CountdownState extends Equatable {
 }
 
 class CountdownInitial extends CountdownState {
-  CountdownInitial(super.duration);
+  const CountdownInitial(super.duration);
 }
 
-class CountdownStarted extends CountdownState {
-  CountdownStarted(super.duration);
+class CountdownRunning extends CountdownState {
+  const CountdownRunning(super.duration);
 }
 
 class CountdownPaused extends CountdownState {
-  CountdownPaused(super.duration);
+  const CountdownPaused(super.duration);
 }
 
 class CountdownFailed extends CountdownState {
-  CountdownFailed(super.duration);
+  const CountdownFailed(super.duration);
 }
 
 class CountdownCompleted extends CountdownState {
-  CountdownCompleted(super.duration);
+  const CountdownCompleted() : super(0);
 }
