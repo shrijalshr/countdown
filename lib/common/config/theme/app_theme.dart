@@ -9,10 +9,11 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     appBarTheme: AppBarTheme(
       elevation: 0,
-      backgroundColor: AppColor.light.whiteSmoke,
+      backgroundColor: AppColor.light.white,
       foregroundColor: AppColor.light.darkGrey,
       iconTheme: IconThemeData(color: AppColor.light.primaryColor),
-      centerTitle: false,
+      centerTitle: true,
+
       titleTextStyle: textTheme.displayLarge!.apply(
         color: AppColor.light.darkGrey,
         // fontSizeDelta: 18,
@@ -22,7 +23,7 @@ class AppTheme {
       // ),
     ),
     primaryColor: AppColor.light.primaryColor,
-    scaffoldBackgroundColor: AppColor.light.whiteSmoke,
+    scaffoldBackgroundColor: AppColor.light.white,
     textTheme: textTheme,
     checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStatePropertyAll(AppColor.light.primaryColor),
@@ -37,7 +38,7 @@ class AppTheme {
     ],
     colorScheme: ColorScheme(
         brightness: Brightness.light,
-        primary: AppColor.light.primaryColor,
+        primary: const Color.fromARGB(255, 91, 155, 238),
         surface: AppColor.light.backgroundColor,
         onSurface: AppColor.light.lightGrey,
         error: AppColor.light.errorColor,

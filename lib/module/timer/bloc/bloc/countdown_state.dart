@@ -6,7 +6,7 @@ abstract class CountdownState extends Equatable {
   final int duration;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [duration];
 }
 
 class CountdownInitial extends CountdownState {

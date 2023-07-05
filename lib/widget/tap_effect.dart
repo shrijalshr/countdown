@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 
 class TapEffect extends StatefulWidget {
   const TapEffect(
-      {Key? key,
-      this.isClickable = true,
-      required this.onClick,
-      required this.child})
+      {Key? key, this.isClickable = true, this.onClick, required this.child})
       : super(key: key);
 
   final bool isClickable;
-  final VoidCallback onClick;
+  final VoidCallback? onClick;
   final Widget child;
 
   @override
@@ -67,7 +64,7 @@ class _TapEffectState extends State<TapEffect>
           await Future<dynamic>.delayed(const Duration(milliseconds: 280));
           try {
             if (!isProgress) {
-              widget.onClick();
+              widget.onClick;
               isProgress = true;
             }
           } catch (_) {}

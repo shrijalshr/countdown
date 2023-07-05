@@ -31,7 +31,7 @@ class AppButton extends StatelessWidget {
     ),
     this.buttonState = AppButtonState.primary,
     this.labelColor,
-    this.isClickable = false,
+    this.isClickable = true,
     this.borderColor,
   });
   final double height;
@@ -62,7 +62,7 @@ class AppButton extends StatelessWidget {
     required Widget label,
     double height = 52,
     double borderRadius = 30,
-    bool isClickable = false,
+    bool isClickable = true,
     Color? borderColor,
     double elevation = 0,
     EdgeInsetsGeometry padding = const EdgeInsets.symmetric(
@@ -80,7 +80,7 @@ class AppButton extends StatelessWidget {
       borderColor: borderColor,
       isClickable: isClickable,
       padding: padding,
-      labelColor: AppColor.light.primaryColor,
+      labelColor: AppColor.light.primaryColor.withOpacity(.7),
     );
   }
   factory AppButton.disabled({
@@ -111,17 +111,17 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColor = Theme.of(context).extension<AppColor>()!;
     return TapEffect(
-      isClickable: isClickable ?? false,
+      isClickable: isClickable ?? true,
       onClick: () {},
       child: ElevatedButton(
         onPressed: buttonState == AppButtonState.disabled ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: buttonState == AppButtonState.primary
-              ? appColor.primaryColor
+              ? appColor.primaryColor.withOpacity(.7)
               : appColor.backgroundColor,
           foregroundColor: buttonState == AppButtonState.primary
               ? appColor.backgroundColor
-              : appColor.primaryColor,
+              : appColor.primaryColor.withOpacity(.7),
           disabledBackgroundColor: appColor.primaryColor.withOpacity(0.5),
           disabledForegroundColor: appColor.backgroundColor,
           elevation: elevation,

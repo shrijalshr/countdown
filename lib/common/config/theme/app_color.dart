@@ -87,7 +87,7 @@ class AppColor extends ThemeExtension<AppColor> {
   }
 
   static const AppColor light = AppColor(
-    primaryColor: Color(0xff584cf4),
+    primaryColor: Color.fromARGB(255, 114, 167, 236),
     secondaryColor: Color(0xffffc529),
     backgroundColor: Color.fromARGB(255, 255, 255, 255),
     darkGrey: Color(0xff1A1D26),

@@ -1,3 +1,4 @@
+import 'package:countdown/common/config/responsive/screen_util.dart';
 import 'package:countdown/common/config/theme/app_theme.dart';
 import 'package:countdown/module/timer/view/countdown_screen.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class CountdownApp extends StatefulWidget {
 class _CountdownAppState extends State<CountdownApp> {
   @override
   Widget build(BuildContext context) {
-    return const CountdownScreen();
+    ScreenUtil.init();
+    return CountdownScreen();
   }
 }

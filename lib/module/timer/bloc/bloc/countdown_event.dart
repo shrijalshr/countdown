@@ -24,3 +24,11 @@ class ResumeCountdown extends CountdownEvent {
 class StopCountdown extends CountdownEvent {
   const StopCountdown();
 }
+
+class TickingCountdown extends CountdownEvent {
+  const TickingCountdown(
+    this.duration,
+  );
+
+  final int duration;
+}

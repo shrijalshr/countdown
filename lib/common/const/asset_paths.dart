@@ -8,4 +8,5 @@ class AssetPaths {
   static const errorImage = '$_illustrationDir/errorImage.png';
   static const completed = '$_illustrationDir/completed.png';
   static const confirmed = '$_illustrationDir/confirmed.png';
+  static const alert = '$_illustrationDir/alert.png';
 }
