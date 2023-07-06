@@ -17,6 +17,10 @@ class CountdownScreen extends StatelessWidget {
 
   Duration? parseTimeString(String timeString) {
     try {
+      print(timeString.isValidTimePeriod());
+      if (!timeString.isValidTimePeriod()) {
+        return null;
+      }
       final parts = timeString.split(':');
       final parsedParts =
           parts.map((part) => part.replaceAll(RegExp('[^0-9]'), ''));

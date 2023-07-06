@@ -187,3 +187,54 @@ extension DateFormatter on DateTime? {
     return formattedDate;
   }
 }
+
+extension TimeChecker on String {
+  bool isValidTimePeriod() {
+    String input = this;
+    List<String> components = input.split(':');
+    int numComponents = components.length;
+
+    if (numComponents < 1 || numComponents > 3) {
+      // Invalid number of components
+      return false;
+    }
+
+    // Check each component
+    for (String component in components) {
+      if (component.isEmpty || component.endsWith(':')) {
+        // Invalid component format
+        return false;
+      }
+
+      if (component.endsWith('h') && component.length > 1) {
+        // Check hours component
+        String hours = component.substring(0, component.length - 1);
+        if (!isNumeric(hours)) {
+          return false;
+        }
+      } else if (component.endsWith('m') && component.length > 1) {
+        // Check minutes component
+        String minutes = component.substring(0, component.length - 1);
+        if (!isNumeric(minutes)) {
+          return false;
+        }
+      } else if (component.endsWith('s') && component.length > 1) {
+        // Check seconds component
+        String seconds = component.substring(0, component.length - 1);
+        if (!isNumeric(seconds)) {
+          return false;
+        }
+      } else {
+        // Invalid component ending
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  bool isNumeric(String value) {
+    final matcher = RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
+    return matcher.hasMatch(value);
+  }
+}
