@@ -14,6 +14,10 @@ class CountdownScreen extends StatelessWidget {
   TextEditingController durationController = TextEditingController();
 
   CountdownScreen({Key? key}) : super(key: key);
+  bool containsOnlyHMS(String string) {
+    RegExp regex = RegExp(r"[^hms]+");
+    return !regex.hasMatch(string);
+  }
 
   Duration? parseTimeString(String timeString) {
     try {
@@ -34,6 +38,7 @@ class CountdownScreen extends StatelessWidget {
         seconds = int.parse(parsedParts.elementAt(1));
       } else if (parsedParts.length == 1) {
         final part = parsedParts.elementAt(0);
+
         if (timeString.contains('h')) {
           hours = int.parse(part);
         } else if (timeString.contains('m')) {
@@ -45,6 +50,9 @@ class CountdownScreen extends StatelessWidget {
         }
       } else {
         return null; // Invalid format
+      }
+      if (!containsOnlyHMS(timeString)) {
+        return null;
       }
 
       return Duration(hours: hours, minutes: minutes, seconds: seconds);
